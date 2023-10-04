@@ -8,7 +8,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val userRegistrationService : UserRegistrationService = UserRegistrationService()
+        //Manual Dependency Injection
+        val userRepository : UserRepository = UserRepository()
+        val emailService : EmailService = EmailService()
+
+        val userRegistrationService : UserRegistrationService = UserRegistrationService(userRepository , emailService)  //Manual Dependency Injection
         userRegistrationService.registerUser("manu.km@sirmaindia.com","12345")
     }
 }

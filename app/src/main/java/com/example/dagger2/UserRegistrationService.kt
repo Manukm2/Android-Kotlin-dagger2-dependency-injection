@@ -1,8 +1,8 @@
 package com.example.dagger2
 
-class UserRegistrationService {
-        private val userRepository : UserRepository = UserRepository()
-        private val emailService : EmailService = EmailService()
+class UserRegistrationService(private val userRepository : UserRepository ,
+                              private val emailService : EmailService) {     //Manual Dependency Injection
+
 
     fun registerUser(Email : String , Password : String){
         userRepository.saveUser(Email,Password)
