@@ -8,13 +8,13 @@ import javax.inject.Named
 class UserRepositoryModule {
 
     @Provides
-    @Named("SQL")
+    @SMSQualifierg
     fun getSQLDBRepository(sqlRepository: SQLRepository) : UserRepository {
         return sqlRepository
     }
 
     @Provides
-    @Named("MongoDB")
+    @MongoDBQualifier
     fun getmongoDBRepository(mongoDBRepository: MongoDBRepository) : UserRepository {
         return mongoDBRepository
     }

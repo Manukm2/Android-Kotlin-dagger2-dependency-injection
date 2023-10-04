@@ -8,13 +8,13 @@ import javax.inject.Named
 class NotificationServiceModule {
 
     @Provides
-    @Named("Email")
+    @EmailQulifier
     fun getEmailService(emailService: EmailService) : NotificationService {
         return emailService
     }
 
     @Provides
-    @Named("SMS")
+    @SMSQualifierg
     fun getSMSService(smsService: SMSService) : NotificationService {
         return smsService
     }
