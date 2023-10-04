@@ -1,8 +1,9 @@
 package com.example.dagger2
 
-class UserRegistrationService(private val userRepository : UserRepository ,
-                              private val emailService : EmailService) {     //Manual Dependency Injection
+import javax.inject.Inject
 
+class UserRegistrationService @Inject constructor(private val userRepository : UserRepository ,
+                              private val emailService : EmailService) {
 
     fun registerUser(Email : String , Password : String){
         userRepository.saveUser(Email,Password)
