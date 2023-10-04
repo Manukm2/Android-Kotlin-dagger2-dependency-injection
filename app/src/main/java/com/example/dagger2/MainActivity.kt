@@ -13,7 +13,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        DaggerUserRegistrationComponent.builder().build().inject(this)
+        DaggerUserRegistrationComponent.builder()
+            .notificationServiceModule(NotificationServiceModule(3))
+            .build().inject(this)
         userRegistrationService.registerUser("manu.km@sirmaindia.com","12345")
     }
 }
