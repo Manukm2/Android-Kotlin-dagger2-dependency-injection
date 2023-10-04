@@ -1,13 +1,21 @@
 package com.example.dagger2
 
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import javax.inject.Named
 
 @Module
-abstract class NotificationServiceModule {
+class NotificationServiceModule {
 
-    @Binds
-    abstract fun getEmailService(emailService: EmailService) : NotificationService
+    @Provides
+    @Named("Email")
+    fun getEmailService(emailService: EmailService) : NotificationService {
+        return emailService
+    }
 
+    @Provides
+    @Named("SMS")
+    fun getSMSService(smsService: SMSService) : NotificationService {
+        return smsService
+    }
 }

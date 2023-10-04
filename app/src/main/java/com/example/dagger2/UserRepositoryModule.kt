@@ -1,12 +1,21 @@
 package com.example.dagger2
 
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import javax.inject.Named
 
 @Module
-abstract class UserRepositoryModule {
+class UserRepositoryModule {
 
-    @Binds
-  abstract  fun getSQLBRepository(sqlRepository: SQLRepository) : UserRepository
+    @Provides
+    @Named("SQL")
+    fun getSQLDBRepository(sqlRepository: SQLRepository) : UserRepository {
+        return sqlRepository
+    }
+
+    @Provides
+    @Named("MongoDB")
+    fun getmongoDBRepository(mongoDBRepository: MongoDBRepository) : UserRepository {
+        return mongoDBRepository
+    }
 }
