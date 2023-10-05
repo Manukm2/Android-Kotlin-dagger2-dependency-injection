@@ -1,21 +1,14 @@
 package com.example.dagger2
 
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
-import javax.inject.Named
+import javax.inject.Singleton
 
 @Module
-class UserRepositoryModule {
+abstract class UserRepositoryModule {
 
-    @Provides
-    @SMSQualifierg
-    fun getSQLDBRepository(sqlRepository: SQLRepository) : UserRepository {
-        return sqlRepository
-    }
-
-    @Provides
-    @MongoDBQualifier
-    fun getmongoDBRepository(mongoDBRepository: MongoDBRepository) : UserRepository {
-        return mongoDBRepository
-    }
+    @Binds
+    @Singleton
+    abstract fun getSQLRepository(sqlRepository: SQLRepository) : UserRepository
 }

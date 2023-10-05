@@ -8,12 +8,18 @@ class MainActivity : AppCompatActivity() {
 
     @Inject
     lateinit var userRegistrationService : UserRegistrationService
+    @Inject
+    lateinit var emailService: EmailService
+    @Inject
+    lateinit var emailService1: EmailService
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val component = DaggerUserRegistrationComponent.factory()
+            .create(3)
 
-        DaggerUserRegistrationComponent.factory().create(3).inject(this)
+            component.inject(this)
         userRegistrationService.registerUser("manu.km@sirmaindia.com","12345")
     }
 }

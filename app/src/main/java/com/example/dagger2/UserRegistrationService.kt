@@ -4,8 +4,9 @@ import javax.inject.Inject
 import javax.inject.Named
 
 class UserRegistrationService @Inject constructor(
-                                   @MongoDBQualifier private val userRepository : UserRepository ,
-                                   @SMSQualifierg private val notificationService : NotificationService) {
+                              private val userRepository : UserRepository ,
+                             @MessageQualifier private val notificationService: NotificationService) {     //Manual Dependency Injection
+
 
     fun registerUser(Email : String , Password : String){
         userRepository.saveUser(Email,Password)
