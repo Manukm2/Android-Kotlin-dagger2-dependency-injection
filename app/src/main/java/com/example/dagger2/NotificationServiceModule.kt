@@ -3,12 +3,11 @@ package com.example.dagger2
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named
-import javax.inject.Singleton
 
 @Module
 class NotificationServiceModule() {
 
-    @ApplicationScope
+    @ActivityScope
     @Provides
     @MessageQualifier
     fun getMessageService(retryCount : Int) : NotificationService {
