@@ -8,7 +8,7 @@ interface  NotificationService {
     fun send(from : String , to : String , body : String?)
 }
 
-@Singleton
+@ApplicationScope
 class EmailService @Inject constructor() : NotificationService{
     override fun send(from : String, to : String, body : String?){
         Log.d("","-----------------------Email Sent--------------------------------")

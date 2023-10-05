@@ -8,7 +8,7 @@ interface UserRepository{
     fun saveUser(Email : String , Password : String)
 }
 
-@Singleton
+@ApplicationScope
 class SQLRepository @Inject constructor() : UserRepository {
     override fun  saveUser(Email : String, Password : String){
         Log.d("","-----------------------User Saved in DB--------------------------------")
